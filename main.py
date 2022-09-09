@@ -2,6 +2,7 @@ from tkinter import *
 import pandas
 import random
 
+
 ARABIC_FONT = ("Arial", 40, "italic")
 ENGLISH_FONT = ("Arial", 60, "bold")
 BACKGROUND_COLOR = "#B1DDC6"
@@ -57,8 +58,6 @@ FLIP_TIMER = windows.after(ms=3000, func=next_word)
 
 # Create the card
 canvas = Canvas(width=800, height=527, background=BACKGROUND_COLOR, highlightthickness=0)
-title = canvas.create_text(400, 150, text='Arabic', font=ARABIC_FONT, )
-word = canvas.create_text(400, 263, text='Test', font=ENGLISH_FONT, )
 back_image_card = PhotoImage(file="./images/card_back.png")
 front_image_card = PhotoImage(file="./images/card_front.png")
 canvas_image = canvas.create_image(403, 267, image=front_image_card)
@@ -67,7 +66,6 @@ word = canvas.create_text(400, 300, text='test', font=ENGLISH_FONT)
 canvas.grid(column=0, row=0, columnspan=2)
 
 # Create the buttons
-
 wrong_image = PhotoImage(file="./images/wrong.png")
 wrong_button = Button(image=wrong_image, bg=BACKGROUND_COLOR, highlightthickness=0, command=next_word)
 wrong_button.grid(column=0, row=1)
