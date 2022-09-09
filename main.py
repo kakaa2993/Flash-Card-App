@@ -19,21 +19,14 @@ except FileNotFoundError:
     data = pandas.read_csv("./data/french_words.csv")
 
 english_arabic_words = data.to_dict(orient="records")
-print(data)
-print(english_arabic_words)
 
 
 # generating a new random word from the data.csv file
 def next_word():
     global CURRENT_WORD, FLIP_TIMER
     windows.after_cancel(FLIP_TIMER)
-
     CURRENT_WORD = random.choice(english_arabic_words)
     current_word_in_english = CURRENT_WORD[FIRST_LANGUAGE]
-    print(CURRENT_WORD)
-    print(english_arabic_words.index(CURRENT_WORD))
-    print(len(english_arabic_words))
-
     canvas.itemconfig(canvas_image, image=front_image_card)
     canvas.itemconfig(title, text=FIRST_LANGUAGE, fill=CARD_FRONT_COLOR)
     canvas.itemconfig(word, text=current_word_in_english, fill=CARD_FRONT_COLOR)
@@ -50,15 +43,9 @@ def flip_card():
 
 def known_word():
     global data
-    # index_current_word = english_arabic_words.index(CURRENT_WORD)
-    # # data = data.drop(index_current_word)
-    # print(data[FIRST_LANGUAGE] == CURRENT_WORD[FIRST_LANGUAGE].index())
-    # print(data)
-    # data.to_csv(path_or_buf="./data/words_to_learn.csv", index=False)
     english_arabic_words.remove(CURRENT_WORD)
     words_to_learn = pandas.DataFrame(english_arabic_words)
     words_to_learn.to_csv(path_or_buf="./data/words_to_learn.csv", index=False)
-    # print(words_to_learn)
     next_word()
 
 
