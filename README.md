@@ -1,7 +1,7 @@
 # Flash-Card-App
 A smail GUI application writen in python programming language.
 ## Where to use this app:
--You can use this app for many things such as memorizing new words from another language.....
+- You can use this app for many things such as memorizing new words from another language.....
 ## How To Use The App:
 - First : you have to choose the file the has the words or sentences tha you want to study and put that file in the ``./data`` 
 directory then go to the main.py file and replace the ``FILE_TARGET`` variable with the name and the directory of your file that you want
